@@ -25,12 +25,8 @@ with st.sidebar:
 
 if uploaded:
     df = pd.read_csv(uploaded)
-        # Limit to 1,000 stores
         if len(df) > 1000:
-            st.warning('File contains more than 1,000 stores; only the first 1,000 will be used.')
-            df = df.iloc[:1000]
         if len(df) > 1000:
-            df = df.iloc[:1000]
     required={'Latitude','Longitude','DemandLbs'}
     if not required.issubset(df.columns):
         st.error(f"CSV must have columns {', '.join(required)}")
